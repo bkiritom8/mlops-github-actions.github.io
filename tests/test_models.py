@@ -3,7 +3,6 @@
 import pytest
 import numpy as np
 import tempfile
-from pathlib import Path
 
 from src.models.trainer import ModelTrainer
 from src.models.evaluator import ModelEvaluator

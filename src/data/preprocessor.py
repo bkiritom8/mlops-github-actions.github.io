@@ -3,7 +3,7 @@
 import pandas as pd
 import numpy as np
 from typing import Tuple, Optional, List
-from sklearn.preprocessing import StandardScaler, MinMaxScaler, LabelEncoder
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.impute import SimpleImputer
 from sklearn.model_selection import train_test_split
 import joblib

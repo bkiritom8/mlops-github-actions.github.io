@@ -9,11 +9,12 @@ on:
 
   workflow_dispatch:
 
-  # Also trigger after training completes
+  # Only trigger after training succeeds (not on failure)
   workflow_run:
     workflows: ["ML Training Pipeline"]
     types:
       - completed
+    branches: [main]
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -29,6 +30,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Only run if workflow_run succeeded or this is a direct push/dispatch
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

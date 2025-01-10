@@ -1,7 +1,6 @@
 """Model training utilities for MLOps pipeline."""
 
 import numpy as np
-import pandas as pd
 from typing import Dict, Any, Optional, Tuple
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.linear_model import LogisticRegression

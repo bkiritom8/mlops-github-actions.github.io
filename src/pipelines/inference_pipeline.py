@@ -2,10 +2,9 @@
 
 import numpy as np
 import pandas as pd
-from typing import Dict, Any, List, Optional, Union
+from typing import Dict, Any, List, Union
 from pathlib import Path
 from datetime import datetime
-import json
 
 from src.data.preprocessor import DataPreprocessor
 from src.models.trainer import ModelTrainer

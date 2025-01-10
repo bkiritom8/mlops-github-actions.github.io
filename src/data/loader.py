@@ -3,7 +3,7 @@
 import pandas as pd
 import numpy as np
 from pathlib import Path
-from typing import Tuple, Optional
+from typing import Tuple
 from sklearn.datasets import make_classification, load_iris, load_wine
 import json
 

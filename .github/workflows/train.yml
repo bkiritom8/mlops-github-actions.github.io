@@ -24,17 +24,9 @@ on:
           - logistic_regression
           - svm
 
-  # Scheduled training (weekly)
-  schedule:
-    - cron: '0 0 * * 0'  # Every Sunday at midnight
-
-  # Trigger on changes to training code
-  push:
-    branches: [main]
-    paths:
-      - 'src/**'
-      - 'configs/**'
-      - 'scripts/run_training.py'
+  # Scheduled training disabled to reduce email notifications
+  # Uncomment to enable: schedule:
+  #   - cron: '0 0 * * 0'  # Every Sunday at midnight
 
 jobs:
   train:
