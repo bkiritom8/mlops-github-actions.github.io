@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Script to update the GitHub Pages dashboard data."""
+
 import argparse
 import sys
 import os
@@ -13,13 +14,19 @@ from src.utils.metrics_reporter import MetricsReporter
 def get_git_info() -> dict:
     """Get current git information."""
     try:
-        commit = subprocess.check_output(
-            ["git", "rev-parse", "HEAD"], stderr=subprocess.DEVNULL
-        ).decode().strip()
+        commit = (
+            subprocess.check_output(["git", "rev-parse", "HEAD"], stderr=subprocess.DEVNULL)
+            .decode()
+            .strip()
+        )
 
-        branch = subprocess.check_output(
-            ["git", "rev-parse", "--abbrev-ref", "HEAD"], stderr=subprocess.DEVNULL
-        ).decode().strip()
+        branch = (
+            subprocess.check_output(
+                ["git", "rev-parse", "--abbrev-ref", "HEAD"], stderr=subprocess.DEVNULL
+            )
+            .decode()
+            .strip()
+        )
 
         return {
             "commit": commit,

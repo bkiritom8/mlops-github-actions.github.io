@@ -1,4 +1,5 @@
 """End-to-end training pipeline for MLOps demonstration."""
+
 import json
 from pathlib import Path
 from datetime import datetime
@@ -97,15 +98,11 @@ class TrainingPipeline:
             # Step 3: Preprocess data
             print("\nStep 3: Preprocessing data...")
             X, y = self.preprocessor.fit_transform(df, target)
-            X_train, X_val, X_test, y_train, y_val, y_test = self.preprocessor.split_data(
-                X, y
-            )
+            X_train, X_val, X_test, y_train, y_val, y_test = self.preprocessor.split_data(X, y)
             print(f"  Train: {len(X_train)}, Val: {len(X_val)}, Test: {len(X_test)}")
 
             # Save preprocessor
-            preprocessor_path = self.preprocessor.save_preprocessors(
-                f"preprocessor_{self.run_id}"
-            )
+            preprocessor_path = self.preprocessor.save_preprocessors(f"preprocessor_{self.run_id}")
             self.artifacts["preprocessor"] = str(preprocessor_path)
 
             # Step 4: Train model
@@ -114,7 +111,9 @@ class TrainingPipeline:
             training_metrics = self.trainer.train(X_train, y_train, X_val, y_val)
             print(f"  Training accuracy: {training_metrics['train_accuracy']:.4f}")
             print(f"  Validation accuracy: {training_metrics['val_accuracy']:.4f}")
-            print(f"  CV mean: {training_metrics['cv_mean']:.4f} (+/- {training_metrics['cv_std']:.4f})")
+            print(
+                f"  CV mean: {training_metrics['cv_mean']:.4f} (+/- {training_metrics['cv_std']:.4f})"
+            )
             results["training_metrics"] = training_metrics
 
             # Step 5: Evaluate on test set
@@ -130,9 +129,7 @@ class TrainingPipeline:
             results["evaluation_metrics"] = eval_metrics
 
             # Save evaluation
-            eval_path = self.evaluator.save_evaluation(
-                eval_metrics, f"evaluation_{self.run_id}"
-            )
+            eval_path = self.evaluator.save_evaluation(eval_metrics, f"evaluation_{self.run_id}")
             self.artifacts["evaluation"] = str(eval_path)
 
             # Step 6: Get feature importance

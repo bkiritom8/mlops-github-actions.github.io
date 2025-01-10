@@ -1,4 +1,5 @@
 """Data validation utilities for MLOps pipeline."""
+
 import pandas as pd
 import numpy as np
 from typing import Dict, List, Any, Optional
@@ -197,9 +198,7 @@ class DataValidator:
         # Check for class imbalance
         min_ratio = class_ratios.min()
         if min_ratio < min_class_ratio:
-            warnings.append(
-                f"Class imbalance detected. Minimum class ratio: {min_ratio:.3f}"
-            )
+            warnings.append(f"Class imbalance detected. Minimum class ratio: {min_ratio:.3f}")
             details["is_imbalanced"] = True
         else:
             details["is_imbalanced"] = False

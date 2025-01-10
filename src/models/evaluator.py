@@ -1,4 +1,5 @@
 """Model evaluation utilities for MLOps pipeline."""
+
 import numpy as np
 import pandas as pd
 from typing import Dict, Any, Optional, List
@@ -60,27 +61,19 @@ class ModelEvaluator:
         metrics["precision"] = float(
             precision_score(y_true, y_pred, average=average, zero_division=0)
         )
-        metrics["recall"] = float(
-            recall_score(y_true, y_pred, average=average, zero_division=0)
-        )
-        metrics["f1_score"] = float(
-            f1_score(y_true, y_pred, average=average, zero_division=0)
-        )
+        metrics["recall"] = float(recall_score(y_true, y_pred, average=average, zero_division=0))
+        metrics["f1_score"] = float(f1_score(y_true, y_pred, average=average, zero_division=0))
 
         # ROC AUC (only for binary or if probabilities provided)
         if y_proba is not None:
             try:
                 if is_binary:
                     if y_proba.ndim == 2:
-                        metrics["roc_auc"] = float(
-                            roc_auc_score(y_true, y_proba[:, 1])
-                        )
+                        metrics["roc_auc"] = float(roc_auc_score(y_true, y_proba[:, 1]))
                     else:
                         metrics["roc_auc"] = float(roc_auc_score(y_true, y_proba))
                 else:
-                    metrics["roc_auc"] = float(
-                        roc_auc_score(y_true, y_proba, multi_class="ovr")
-                    )
+                    metrics["roc_auc"] = float(roc_auc_score(y_true, y_proba, multi_class="ovr"))
             except ValueError:
                 metrics["roc_auc"] = None
 
@@ -105,9 +98,7 @@ class ModelEvaluator:
 
         return metrics
 
-    def get_roc_curve_data(
-        self, y_true: np.ndarray, y_proba: np.ndarray
-    ) -> Dict[str, List[float]]:
+    def get_roc_curve_data(self, y_true: np.ndarray, y_proba: np.ndarray) -> Dict[str, List[float]]:
         """
         Get ROC curve data points.
 
@@ -153,9 +144,7 @@ class ModelEvaluator:
             "thresholds": thresholds.tolist(),
         }
 
-    def compare_models(
-        self, evaluations: Dict[str, Dict[str, Any]]
-    ) -> pd.DataFrame:
+    def compare_models(self, evaluations: Dict[str, Dict[str, Any]]) -> pd.DataFrame:
         """
         Compare multiple model evaluations.
 
@@ -176,9 +165,7 @@ class ModelEvaluator:
 
         return pd.DataFrame(data).set_index("model")
 
-    def save_evaluation(
-        self, metrics: Dict[str, Any], name: str = "evaluation"
-    ) -> Path:
+    def save_evaluation(self, metrics: Dict[str, Any], name: str = "evaluation") -> Path:
         """
         Save evaluation metrics to JSON file.
 
@@ -232,34 +219,40 @@ class ModelEvaluator:
         if metrics.get("roc_auc") is not None:
             report_lines.append(f"ROC AUC:   {metrics['roc_auc']:.4f}")
 
-        report_lines.extend([
-            "",
-            "CONFUSION MATRIX",
-            "-" * 40,
-        ])
+        report_lines.extend(
+            [
+                "",
+                "CONFUSION MATRIX",
+                "-" * 40,
+            ]
+        )
 
         if "confusion_matrix" in metrics:
             cm = np.array(metrics["confusion_matrix"])
             report_lines.append(str(cm))
 
         if metrics.get("true_positives") is not None:
-            report_lines.extend([
-                "",
-                "DETAILED BREAKDOWN",
-                "-" * 40,
-                f"True Positives:  {metrics['true_positives']}",
-                f"True Negatives:  {metrics['true_negatives']}",
-                f"False Positives: {metrics['false_positives']}",
-                f"False Negatives: {metrics['false_negatives']}",
-                f"Specificity:     {metrics['specificity']:.4f}",
-            ])
+            report_lines.extend(
+                [
+                    "",
+                    "DETAILED BREAKDOWN",
+                    "-" * 40,
+                    f"True Positives:  {metrics['true_positives']}",
+                    f"True Negatives:  {metrics['true_negatives']}",
+                    f"False Positives: {metrics['false_positives']}",
+                    f"False Negatives: {metrics['false_negatives']}",
+                    f"Specificity:     {metrics['specificity']:.4f}",
+                ]
+            )
 
-        report_lines.extend([
-            "",
-            "=" * 60,
-            f"Samples Evaluated: {metrics.get('n_samples', 'N/A')}",
-            "=" * 60,
-        ])
+        report_lines.extend(
+            [
+                "",
+                "=" * 60,
+                f"Samples Evaluated: {metrics.get('n_samples', 'N/A')}",
+                "=" * 60,
+            ]
+        )
 
         return "\n".join(report_lines)
 

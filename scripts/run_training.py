@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Script to run the training pipeline."""
+
 import argparse
 import sys
 import os

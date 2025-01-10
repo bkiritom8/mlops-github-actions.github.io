@@ -1,4 +1,5 @@
 """Tests for data processing modules."""
+
 import pytest
 import pandas as pd
 import numpy as np
@@ -82,11 +83,13 @@ class TestDataPreprocessor:
     def sample_data(self):
         """Create sample data for testing."""
         np.random.seed(42)
-        df = pd.DataFrame({
-            "feature_1": np.random.randn(100),
-            "feature_2": np.random.randn(100),
-            "feature_3": np.random.randn(100),
-        })
+        df = pd.DataFrame(
+            {
+                "feature_1": np.random.randn(100),
+                "feature_2": np.random.randn(100),
+                "feature_3": np.random.randn(100),
+            }
+        )
         target = pd.Series(np.random.randint(0, 2, 100))
         return df, target
 
@@ -152,11 +155,13 @@ class TestDataValidator:
     @pytest.fixture
     def sample_data(self):
         """Create sample data for testing."""
-        df = pd.DataFrame({
-            "feature_1": [1.0, 2.0, 3.0, 4.0, 5.0],
-            "feature_2": [1.0, 2.0, None, 4.0, 5.0],
-            "feature_3": [1.0, 2.0, 3.0, 4.0, 5.0],
-        })
+        df = pd.DataFrame(
+            {
+                "feature_1": [1.0, 2.0, 3.0, 4.0, 5.0],
+                "feature_2": [1.0, 2.0, None, 4.0, 5.0],
+                "feature_3": [1.0, 2.0, 3.0, 4.0, 5.0],
+            }
+        )
         target = pd.Series([0, 1, 0, 1, 0])
         return df, target
 
