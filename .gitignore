@@ -70,6 +70,7 @@ logs/
 # Jupyter
 .ipynb_checkpoints
 *.ipynb
+!demo.ipynb
 
 # Testing
 .pytest_cache/

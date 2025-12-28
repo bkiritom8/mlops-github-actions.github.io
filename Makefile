@@ -1,4 +1,4 @@
-.PHONY: help venv install setup train evaluate test clean all pipeline clean-venv
+.PHONY: help venv install setup train evaluate test clean all pipeline clean-venv report
 
 # Python interpreter
 PYTHON := python3
@@ -18,6 +18,7 @@ help:
 	@echo "  evaluate      - Evaluate the trained model"
 	@echo "  test          - Run all tests"
 	@echo "  pipeline      - Run complete ML pipeline"
+	@echo "  report        - Generate project summary report"
 	@echo "  clean         - Clean generated files"
 	@echo "  clean-venv    - Remove virtual environment"
 	@echo "  all           - Run complete pipeline with tests"
@@ -27,6 +28,7 @@ help:
 	@echo "  2. source venv/bin/activate  (or 'venv\\Scripts\\activate' on Windows)"
 	@echo "  3. make install"
 	@echo "  4. make pipeline"
+	@echo "  5. make report        (view project summary)"
 
 # Create virtual environment
 venv:
@@ -112,3 +114,8 @@ lint:
 format:
 	@echo "Formatting code..."
 	black src/ tests/
+
+# Generate project report
+report:
+	@echo "Generating project report..."
+	@python generate_report.py

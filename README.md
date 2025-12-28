@@ -1,6 +1,39 @@
 # MLOps CI/CD Pipeline with GitHub Actions
 
+[![ML Pipeline](https://github.com/bkiritom8/mlops-github-actions/actions/workflows/ml-pipeline.yml/badge.svg)](https://github.com/bkiritom8/mlops-github-actions/actions/workflows/ml-pipeline.yml)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 A complete end-to-end MLOps project demonstrating automated machine learning workflows using GitHub Actions, CML (Continuous Machine Learning), and Makefile automation.
+
+**🎯 Live Demo**: [View GitHub Actions Runs](https://github.com/bkiritom8/mlops-github-actions/actions) |
+**📊 Model Performance**: Check the latest PR for automated CML reports |
+**📖 Documentation**: [Architecture](ARCHITECTURE.md) | [Showcase Guide](SHOWCASE.md)
+
+---
+
+## 🌟 Project Highlights
+
+### Key Features
+✨ **Fully Automated Pipeline** - Push code → Auto train → Auto evaluate → Auto deploy
+🤖 **CI/CD Integration** - GitHub Actions workflows for continuous ML operations
+📊 **CML Reports** - Automated model performance reports in pull requests
+🧪 **Comprehensive Testing** - Data validation, model quality, and integration tests
+📈 **Real-time Metrics** - Performance tracking with visualizations
+🎯 **Quality Gates** - 80% accuracy threshold prevents poor models from deployment
+🔄 **Reproducible** - Version-controlled code, configs, and workflows
+🚀 **Production-Ready** - Follows MLOps best practices and industry standards
+
+### What Makes This Project Stand Out
+- **End-to-End Automation**: No manual intervention needed - the entire workflow is automated
+- **Production Mindset**: Built with real-world deployment scenarios in mind
+- **Best Practices**: Implements testing, validation, versioning, and monitoring
+- **Developer Experience**: Simple commands (`make pipeline`) hide complex workflows
+- **Collaboration-Friendly**: CML integration makes model review easy for teams
+- **Portfolio-Ready**: Well-documented, visually appealing, and demonstrates MLOps skills
+
+---
 
 ## Project Overview
 
