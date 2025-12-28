@@ -1,0 +1,51 @@
+name: Model Deployment
+
+on:
+  workflow_run:
+    workflows: ["ML CI/CD Pipeline"]
+    types:
+      - completed
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Download model artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: model-artifacts
+          path: artifacts/
+
+      - name: Deploy model
+        run: |
+          echo "🚀 Deploying model to production..."
+          echo "Model artifacts ready for deployment"
+          echo "In a real scenario, this would deploy to:"
+          echo "  - Cloud platforms (AWS SageMaker, Azure ML, GCP Vertex AI)"
+          echo "  - Container registries (Docker Hub, ECR, GCR)"
+          echo "  - Model serving platforms (TensorFlow Serving, MLflow)"
+          echo "✅ Deployment simulation completed"
+
+      - name: Create deployment tag
+        if: github.ref == 'refs/heads/main'
+        run: |
+          DATE=$(date +'%Y%m%d-%H%M%S')
+          git tag -a "deploy-$DATE" -m "Automated deployment $DATE"
+          echo "Created deployment tag: deploy-$DATE"
