@@ -1,32 +1,31 @@
 {
-  "generated_at": "2024-01-15T14:30:22.000Z",
+  "generated_at": "2026-02-04T03:24:42.367336",
   "project": {
     "name": "MLOps GitHub Actions",
     "version": "1.0.0",
     "description": "End-to-end MLOps demonstration with GitHub Actions"
   },
   "pipeline": {
-    "total_runs": 1,
-    "latest_run": {
-      "run_id": "demo_run_001",
-      "status": "completed",
-      "timestamp": "2024-01-15T14:30:22.000Z",
-      "accuracy": 0.92,
-      "f1_score": 0.91,
-      "roc_auc": 0.96,
-      "precision": 0.93,
-      "recall": 0.90
-    },
+    "last_updated": "2026-02-04T03:24:42.367011",
     "runs": [
       {
-        "run_id": "demo_run_001",
+        "run_id": "20260204_032441",
         "status": "completed",
-        "timestamp": "2024-01-15T14:30:22.000Z",
-        "accuracy": 0.92,
-        "f1_score": 0.91,
-        "roc_auc": 0.96
+        "timestamp": "2026-02-04T03:24:41.041430",
+        "accuracy": 0.83,
+        "f1_score": 0.8349514563106796,
+        "roc_auc": 0.8763505402160865
       }
-    ]
+    ],
+    "latest_run": {
+      "run_id": "20260204_032441",
+      "status": "completed",
+      "timestamp": "2026-02-04T03:24:41.041430",
+      "accuracy": 0.83,
+      "f1_score": 0.8349514563106796,
+      "roc_auc": 0.8763505402160865
+    },
+    "total_runs": 1
   },
   "features": {
     "data_validation": true,
@@ -38,7 +37,7 @@
     "monitoring": true
   },
   "environment": {
-    "python_version": "3.10+",
+    "python_version": "3.9+",
     "runner": "ubuntu-latest"
   }
 }
