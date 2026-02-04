@@ -1,33 +1,33 @@
 {
-  "generated_at": "2026-02-04T19:35:17.947122",
+  "generated_at": "2026-02-04T19:38:15.346812",
   "project": {
     "name": "MLOps GitHub Actions",
     "version": "1.0.0",
     "description": "End-to-end MLOps demonstration with GitHub Actions"
   },
   "pipeline": {
-    "last_updated": "2026-02-04T03:24:42.367011",
+    "last_updated": "2026-02-04T19:38:15.346459",
     "runs": [
       {
-        "run_id": "20260204_032441",
+        "run_id": "20260204_193813",
         "status": "completed",
-        "timestamp": "2026-02-04T03:24:41.041430",
+        "timestamp": "2026-02-04T19:38:13.988610",
         "accuracy": 0.83,
         "f1_score": 0.8349514563106796,
         "roc_auc": 0.8763505402160865,
-        "precision": 0.8412698412698413,
-        "recall": 0.8287671232876712
+        "precision": 0.8269230769230769,
+        "recall": 0.8431372549019608
       }
     ],
     "latest_run": {
-      "run_id": "20260204_032441",
+      "run_id": "20260204_193813",
       "status": "completed",
-      "timestamp": "2026-02-04T03:24:41.041430",
+      "timestamp": "2026-02-04T19:38:13.988610",
       "accuracy": 0.83,
       "f1_score": 0.8349514563106796,
       "roc_auc": 0.8763505402160865,
-      "precision": 0.8412698412698413,
-      "recall": 0.8287671232876712
+      "precision": 0.8269230769230769,
+      "recall": 0.8431372549019608
     },
     "total_runs": 1
   },
@@ -39,11 +39,6 @@
     "ci_cd": true,
     "model_serving": true,
     "monitoring": true
-  },
-  "git": {
-    "commit": "938d7606671308c2b8e9a6b3c378974ecf116cf9",
-    "branch": "claude/github-pages-deployment-5zp5Y",
-    "short_commit": "938d760"
   },
   "environment": {
     "python_version": "3.9+",
