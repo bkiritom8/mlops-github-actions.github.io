@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-06-14T04:21:08.963564",
+  "generated_at": "2026-06-21T04:27:37.866037",
   "project": {
     "name": "MLOps GitHub Actions",
     "version": "1.0.0",
     "description": "End-to-end MLOps demonstration with GitHub Actions"
   },
   "pipeline": {
-    "last_updated": "2026-06-14T04:21:08.963162",
+    "last_updated": "2026-06-21T04:27:37.865636",
     "runs": [
       {
-        "run_id": "20260614_042107",
+        "run_id": "20260621_042736",
         "status": "completed",
-        "timestamp": "2026-06-14T04:21:07.648985",
+        "timestamp": "2026-06-21T04:27:36.617578",
         "accuracy": 0.83,
         "f1_score": 0.8349514563106796,
         "roc_auc": 0.8763505402160865,
@@ -20,9 +20,9 @@
       }
     ],
     "latest_run": {
-      "run_id": "20260614_042107",
+      "run_id": "20260621_042736",
       "status": "completed",
-      "timestamp": "2026-06-14T04:21:07.648985",
+      "timestamp": "2026-06-21T04:27:36.617578",
       "accuracy": 0.83,
       "f1_score": 0.8349514563106796,
       "roc_auc": 0.8763505402160865,
